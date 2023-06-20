@@ -348,7 +348,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-and-preprocessing">Dataset and Preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-and-preprocessing">Dataset and Preprocessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-1-https-www-penguinmap-com-mapppd">Dataset 1: https://www.penguinmap.com/mapppd/</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-2-https-www-kaggle-com-datasets-sevgisarac-temperature-change">Dataset 2: https://www.kaggle.com/datasets/sevgisarac/temperature-change</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-3-https-www-kaggle-com-datasets-douglas426-antarctica-temperature">Dataset 3: https://www.kaggle.com/datasets/douglas426/antarctica-temperature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-4-https-www-kaggle-com-datasets-eisgandar-antarctic-icebergs-weekly-reports-2019-2022">Dataset 4: https://www.kaggle.com/datasets/eisgandar/antarctic-icebergs-weekly-reports-2019-2022</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-5-https-www-kaggle-com-datasets-kkhandekar-global-sea-level-1993-2021">Dataset 5: https://www.kaggle.com/datasets/kkhandekar/global-sea-level-1993-2021</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#work-distribution">Work Distribution</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-ai-usage">Generative AI Usage</a></li>
@@ -366,9 +373,154 @@ document.write(`
                   
   <section id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<p>While global warming has been a popular topic over the last decade, we have not given enough attention to its impact on other animals, specifically those that inhabit cold areas like penguins! As you may know, penguins live in the Southern Hemisphere, primarily in Antarctica, South Africa, and Australia. In this data story, we primarily decided to focus on the penguin population based in Antarctica.
+We are particularly interested in understanding how global warming affects these adorable penguins. We aim to confirm the statements we found on Google using the data we collected. To ensure we cover all possible perspectives, we have divided our study into two main sections, each with subsections that provide a comprehensive overview of the data.
+In the first perspective we want to visualize is the decrease in penguin habitat due to global warming. In this visualization, we will explore the development of iceberg characteristics and the specific impact of global warming on Antarctica over the years.</p>
+<p>Of course, the reduction of the penguin habitat does not come without consequences. The reduction of living space means that the penguins will not be able to breed on melting icebergs. That being said, there are also penguin species that cannot survive without land. Therefore, with the risk of global warming and rising sea levels, there is a chance that some penguin species become endangered as a result of global warming.</p>
+<p>So in the second perspective we aim to visualize is whether the reduction in penguin habitat leads to a decline in the penguin population. Our question here is whether the penguin population is at risk of becoming endangered in the future. With this perspective, we hope to conclude that it is still too early to declare the penguin population as endangered.</p>
+<p><img alt="Gentoo Penguins on Ice" src="../_images/gentoo_penguins.png" />
+Source: <a class="reference external" href="https://artlist.io/stock-footage/clip/penguin-gentoo-antarctic-colony/591826">https://artlist.io/stock-footage/clip/penguin-gentoo-antarctic-colony/591826</a></p>
 </section>
 <section id="dataset-and-preprocessing">
 <h1>Dataset and Preprocessing<a class="headerlink" href="#dataset-and-preprocessing" title="Permalink to this heading">#</a></h1>
+<p>We used the following datasets in this data story:</p>
+<section id="dataset-1-https-www-penguinmap-com-mapppd">
+<h2>Dataset 1: <a class="reference external" href="https://www.penguinmap.com/mapppd/">https://www.penguinmap.com/mapppd/</a><a class="headerlink" href="#dataset-1-https-www-penguinmap-com-mapppd" title="Permalink to this heading">#</a></h2>
+<p>This dataset shows the number of penguins living in the certain regions of Antarctica. This dataset also describes the longitude/latitude and the several types of species that occur in the region. The dataset is dated with day, month, and year (from 1922 to 2022). The count_type is also shown for accuracy.</p>
+<p>This dataset holds the following variables:</p>
+<ul class="simple">
+<li><p>site_name</p></li>
+<li><p>site_id</p></li>
+<li><p>cammir_region</p></li>
+<li><p>longitude_epsg_4326</p></li>
+<li><p>latitude_epsg_4326</p></li>
+<li><p>common_name</p></li>
+<li><p>day</p></li>
+<li><p>month</p></li>
+<li><p>year</p></li>
+<li><p>season_starting</p></li>
+<li><p>penguin_count</p></li>
+<li><p>accuracy</p></li>
+<li><p>count_type</p></li>
+<li><p>vantage</p></li>
+<li><p>reference</p></li>
+</ul>
+<p>The following changes were made to this dataset:</p>
+<ul class="simple">
+<li><p>Filter year from 2002 to 2020</p></li>
+<li><p>Grouping by year</p></li>
+<li><p>Fixed missing years on certain sites, we interpolated</p></li>
+<li><p>Picked data based on penguin and site combination</p></li>
+</ul>
+</section>
+<section id="dataset-2-https-www-kaggle-com-datasets-sevgisarac-temperature-change">
+<h2>Dataset 2: <a class="reference external" href="https://www.kaggle.com/datasets/sevgisarac/temperature-change">https://www.kaggle.com/datasets/sevgisarac/temperature-change</a><a class="headerlink" href="#dataset-2-https-www-kaggle-com-datasets-sevgisarac-temperature-change" title="Permalink to this heading">#</a></h2>
+<p>The dataset contains the mean surface temperature change by country, with annual updates. The data covers the period between 1961 and 2020 and contains monthly, seasonal, and annual temperature changes with respect to a baseline climatology, corresponding to the period between 1951 and 1980. The temperature changes are measured in Celsius.</p>
+<p>This dataset holds the following variables:</p>
+<ul class="simple">
+<li><p>Domain Code</p></li>
+<li><p>Domain</p></li>
+<li><p>Area Code (FAO)</p></li>
+<li><p>Area</p></li>
+<li><p>Element Code</p></li>
+<li><p>Element</p></li>
+<li><p>Months Code</p></li>
+<li><p>Months</p></li>
+<li><p>Year Code</p></li>
+<li><p>Year</p></li>
+<li><p>Unit</p></li>
+<li><p>Value</p></li>
+<li><p>Flag</p></li>
+<li><p>Flag Description</p></li>
+</ul>
+<p>The following changes were made to this dataset:</p>
+<ul class="simple">
+<li><p>Filtered each country except Antarctica</p></li>
+</ul>
+</section>
+<section id="dataset-3-https-www-kaggle-com-datasets-douglas426-antarctica-temperature">
+<h2>Dataset 3: <a class="reference external" href="https://www.kaggle.com/datasets/douglas426/antarctica-temperature">https://www.kaggle.com/datasets/douglas426/antarctica-temperature</a><a class="headerlink" href="#dataset-3-https-www-kaggle-com-datasets-douglas426-antarctica-temperature" title="Permalink to this heading">#</a></h2>
+<p>This dataset shows the temperatures in Antarctica. Based on the longitude/latitude the average, maximum, minimum temperature is shown based on the coordinates. The dataset also reports the average and minimum sea level pressures. Which you can easily correlate with the sea level dataset. The dataset also contains wind speed, visibility and data based on month and year.</p>
+<p>This dataset holds the following variables:
+Note that every xlsx in the dataset contains 30 columns, but some columns are all nan or 0, the columns are useless columns:</p>
+<ul class="simple">
+<li><p>Site number</p></li>
+<li><p>altitude</p></li>
+<li><p>longitude</p></li>
+<li><p>latitude</p></li>
+<li><p>year</p></li>
+<li><p>month</p></li>
+<li><p>Average temperature (℃)</p></li>
+<li><p>Average maximum temperature (℃)</p></li>
+<li><p>Average minimum temperature (℃)</p></li>
+<li><p>Extreme value of maximum temperature (℃)</p></li>
+<li><p>Extreme value of minimum temperature (℃)</p></li>
+<li><p>Days with average temperature ≥ 18 ℃</p></li>
+<li><p>Days with average temperature ≥ 35 ℃</p></li>
+<li><p>Days with average temperature ≤ 0 ℃</p></li>
+<li><p>Average dew point temperature (℃)</p></li>
+<li><p>Precipitation (mm)</p></li>
+<li><p>Maximum daily precipitation (mm)</p></li>
+<li><p>Precipitation days</p></li>
+<li><p>Mean sea level pressure (hPa)</p></li>
+<li><p>Minimum sea level pressure (hPa)</p></li>
+<li><p>Average station air pressure (hPa)</p></li>
+<li><p>Snow depth (mm)</p></li>
+<li><p>Average visibility (km)</p></li>
+<li><p>Minimum visibility (km)</p></li>
+<li><p>Maximum visibility (km)</p></li>
+<li><p>Average wind speed (knots)</p></li>
+<li><p>Average maximum sustained wind speed (knots)</p></li>
+<li><p>Daily maximum average wind speed (knots)</p></li>
+<li><p>Average maximum instantaneous wind speed (knots)</p></li>
+<li><p>Maximum instantaneous wind speed extreme value (knots)</p></li>
+</ul>
+<p>The following changes were made to this dataset:</p>
+<ul class="simple">
+<li><p>All .xlsx files combined into one dataset</p></li>
+<li><p>Changed datatype from .xlsx to .csv</p></li>
+<li><p>Chinese columns translated into English</p></li>
+<li><p>Removed NaN values (	Days with average temperature ≥ 18 ℃ &amp; Days with average temperature ≥ 35 ℃)</p></li>
+</ul>
+</section>
+<section id="dataset-4-https-www-kaggle-com-datasets-eisgandar-antarctic-icebergs-weekly-reports-2019-2022">
+<h2>Dataset 4: <a class="reference external" href="https://www.kaggle.com/datasets/eisgandar/antarctic-icebergs-weekly-reports-2019-2022">https://www.kaggle.com/datasets/eisgandar/antarctic-icebergs-weekly-reports-2019-2022</a><a class="headerlink" href="#dataset-4-https-www-kaggle-com-datasets-eisgandar-antarctic-icebergs-weekly-reports-2019-2022" title="Permalink to this heading">#</a></h2>
+<p>This dataset contains information about the icebergs of Antarctica. There are different Icebergs, and every iceberg has its own information. It has weekly reports over the period August 2019 to August 2022, with a total of 110 weeks. The information of the icebergs are the length, width, latitude, and longitude.</p>
+<p>This dataset holds the following variables:</p>
+<ul class="simple">
+<li><p>Iceberg</p></li>
+<li><p>Length (NM)</p></li>
+<li><p>Width (NM)</p></li>
+<li><p>Latitude</p></li>
+<li><p>Longitude</p></li>
+<li><p>Remarks</p></li>
+<li><p>Last Update</p></li>
+</ul>
+<p>The following changes were made to this dataset:</p>
+<ul class="simple">
+<li><p>Combined all .csv files into one dataset</p></li>
+</ul>
+</section>
+<section id="dataset-5-https-www-kaggle-com-datasets-kkhandekar-global-sea-level-1993-2021">
+<h2>Dataset 5: <a class="reference external" href="https://www.kaggle.com/datasets/kkhandekar/global-sea-level-1993-2021">https://www.kaggle.com/datasets/kkhandekar/global-sea-level-1993-2021</a><a class="headerlink" href="#dataset-5-https-www-kaggle-com-datasets-kkhandekar-global-sea-level-1993-2021" title="Permalink to this heading">#</a></h2>
+<p>This dataset shows the change in sea-level observed by satellites starting from 1993 until 2021. It contains information about the gaussian distribution, standard deviation, and the mean over the data with respect to 20-year TOPEX/Jason collinear mean reference. Then they also give the same rows where the Global Isostatic Adjustment is applied.</p>
+<p>This dataset holds the following variables:</p>
+<ul class="simple">
+<li><p>Year</p></li>
+<li><p>Total Weighted Observations</p></li>
+<li><p>GMSL (Global Isostatic Adjustment (GIA) not applied) variation (mm) with respect to 20-year TOPEX/Jason collinear mean reference</p></li>
+<li><p>Standard Deviation of GMSL (GIA not applied) variation estimate (mm)</p></li>
+<li><p>Smoothed (60-day Gaussian type filter) GMSL (GIA not applied) variation (mm)</p></li>
+<li><p>GMSL (Global Isostatic Adjustment (GIA) applied) variation (mm) with respect to 20-year TOPEX/Jason collinear mean reference</p></li>
+<li><p>Standard deviation of GMSL (GIA applied) variation estimate (mm)</p></li>
+<li><p>Smoothed (60-day Gaussian type filter) GMSL (GIA applied) variation (mm)</p></li>
+<li><p>Smoothed (60-day Gaussian type filter) GMSL (GIA applied) variation (mm); annual and semi-annual signal removed</p></li>
+</ul>
+<p>The following changes were made to this dataset:</p>
+<ul class="simple">
+<li><p>Filtered dataset and kept year / sealevel combination (Year and Global Isostatic Adjustment (GIA) applied)</p></li>
+</ul>
+</section>
 </section>
 <section id="reflection">
 <h1>Reflection<a class="headerlink" href="#reflection" title="Permalink to this heading">#</a></h1>
@@ -378,38 +530,34 @@ document.write(`
 </section>
 <section id="generative-ai-usage">
 <h1>Generative AI Usage<a class="headerlink" href="#generative-ai-usage" title="Permalink to this heading">#</a></h1>
-<p>Guidelines for Using Generative AI1
-I allow and encourage my students to use generative AI tools, such as ChatGPT, to boost
-their productivity. However, it is crucial to be transparent about their use. If you use
-generative AI tools, you must include the following information in your deliverables for the
-assignments and projects:</p>
-<p>In your appendix, include information on the generative AI tool used (e.g.,
-ChatGPT with GPT 3.5) and the types of tasks it was used for. You need to report
-all the tasks that you did with the generative AI. Refer to the appendix of this
-document as an example. Below are some possible scenarios (but are not limited):
-○ Proofreading and copy-editing to improve writing clarity.
-○ Asking or searching for some information (i.e., using generative AI as an
-information retrieval tool or search engine).
-○ Brainstorming research ideas.</p>
-<ul class="simple">
-<li><p>In your appendix, write a reflection section or paragraph explaining why you used
-the generative AI tools.</p></li>
-<li><p>If the generative AI tool created text from scratch, enclose the text in quotes and
-reference it to the generative AI tool in the Bibliography or as a footnote,
-including the date and prompts used to generate the text.</p></li>
-<li><p>If you used generative AI tools to modify content you created, such as copy-editing or
-proofreading, include a comprehensive table in your appendix linking each piece
-of text that was (partially) created by the generative AI tool to the exact prompts
-used for that text. You can use a footnote to indicate which parts were created using
-the generative AI tool.</p></li>
-<li><p>If you used generative AI tools to create or edit graphs/figures (for example, via
-creating programming codes), reference the tool in the figure caption, including the
-date and prompts used to create the figure/graph.</p></li>
-<li><p>If you use a series of prompts when using the generative AI, report the entire
-human-AI collaboration pipeline that includes all the prompts.
-Grammarly currently does not count as generative AI. So you do not need to report the
-usage of Grammarly to correct grammar errors or copy-editing.</p></li>
-</ul>
+<p>The reason for using generative tools in this data story project was to ensure that mistakes in the written text were not overlooked and to save time. The text was quickly written with typos, and little attention was given to the flow of the text. To save time, generative AI, such as ChatGPT, was used to fix these issues. However, it’s important to note that ChatGPT was not used for writing the code in our data story project thus far. All code was either written manually or copied from examples in the Plotly documentation, with a few tweaks added.</p>
+<p>Note: Sections that were adjusted with generative AI are denoted with ‘Proodread’</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Can you check this text for grammar mistakes?</p></td>
+<td><p>While global warming has been a popular topic the last decade we have not given attention to what global warming can cause to other animals. Specifically ones that like to live in cold eareas, such as penguins! As you may know Pneuins live at the south pole. Places they occur are Antarctica, South Africa and Australaia. In this data story we were really interested in how global warming affects those cute penguins. Was it really true that the penguin population was decreasing due to global warming and why? We hoped to confirm these statements that we found on Google with the data we found. To ensure we cover all possible perspective we divided it into two main persepctives and each perspective has subsections to give a better overview of the data story. The first perspective we want to visualize is to show if the penguin habitat is decreasing deu to global warming. In this visualisation we are going to show how iceberg characteristics develop and global warming specifically on Antarctica over the years. The second perspective we are wanting to visualize is whether the reduced penguin habitat makes the penguin population go down. Our question here is if the penguin population is going to be distinct in the future and so are they endagenerd? In this perspective we really hope to declare that it is still too early to declare the penguin populatiom as endangered.</p></td>
+<td><p>“While global warming has been a popular topic over the last decade, we have not given enough attention to its impact on other animals, specifically those that inhabit cold areas like penguins! As you may know, penguins live in the South Pole, primarily in Antarctica, South Africa, and Australia. In this data story, we are particularly interested in understanding how global warming affects these adorable penguins. We aim to confirm the statements we found on Google using the data we collected. To ensure we cover all possible perspectives, we have divided our study into two main sections, each with subsections that provide a comprehensive overview of the data.The first perspective we want to visualize is the decrease in penguin habitat due to global warming. In this visualization, we will explore the development of iceberg characteristics and the specific impact of global warming on Antarctica over the years.The second perspective we aim to visualize is whether the reduction in penguin habitat leads to a decline in the penguin population. Our question here is whether the penguin population is at risk of becoming endangered in the future. With this perspective, we hope to conclude that it is still too early to declare the penguin population as endangered.”</p></td>
+</tr>
+<tr class="row-odd"><td><p>Correct and revise this text:</p></td>
+<td><p>As seen in the donut pie chart, our distribution of penguin species in the dataset we used is not divided equally. The most prominent penguin species that occur in our dataset is the Adélie penguin, followed by the Chinstrap, Emperor, Gentoo, Macaroni and King penguin. Each penguin species is also labeled with the fitting percentage, to get a better overview of the divided species</p></td>
+<td><p>The donut pie chart reveals that the distribution of penguin species in our dataset is not equal. The Adélie penguin stands out as the most prominent species, followed by the Chinstrap, Emperor, Gentoo, Macaroni, and King penguin. Each species is labeled with the corresponding percentage, providing a clearer overview of the distribution among the different species.</p></td>
+</tr>
+<tr class="row-even"><td><p>Correct and revise this text:</p></td>
+<td><p>In this bar plot the sum of total penguin count is visualised. As you can see we took the data based on the years 2002 till 2020, as these were the years that had no gap in the data between the years. Each year the penguin population slight rises. As seen it goes well with the penguin population.</p></td>
+<td><p>This bar plot visualizes the total count of penguins. The data is derived from the years 2002 to 2020, which were selected due to the absence of any data gaps between those years. It is evident that the penguin population shows a slight increase each year, aligning well with the overall trend.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Correct and revise this text:</p></td>
+<td><p>What stands out in this plot is that the sea level keeps rising each year with some fluctuations. Besides the rising of the sea level the population of the chinstrap decreases, also with some fluctuations. The decrease wat somewhat little between the time stamp of 2002 till 2008, from then the chinstrap penguin population started decreasing with a high fall.</p></td>
+<td><p>One notable observation in this plot is the consistent rise in sea level each year, accompanied by certain fluctuations. In addition to the rising sea level, there is a noticeable decline in the population of chinstrap penguins, also exhibiting some fluctuations. Initially, the decline was relatively small between 2002 and 2008. However, starting from that point, the chinstrap penguin population experienced a significant drop.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -473,7 +621,14 @@ usage of Grammarly to correct grammar errors or copy-editing.</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-and-preprocessing">Dataset and Preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-and-preprocessing">Dataset and Preprocessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-1-https-www-penguinmap-com-mapppd">Dataset 1: https://www.penguinmap.com/mapppd/</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-2-https-www-kaggle-com-datasets-sevgisarac-temperature-change">Dataset 2: https://www.kaggle.com/datasets/sevgisarac/temperature-change</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-3-https-www-kaggle-com-datasets-douglas426-antarctica-temperature">Dataset 3: https://www.kaggle.com/datasets/douglas426/antarctica-temperature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-4-https-www-kaggle-com-datasets-eisgandar-antarctic-icebergs-weekly-reports-2019-2022">Dataset 4: https://www.kaggle.com/datasets/eisgandar/antarctic-icebergs-weekly-reports-2019-2022</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-5-https-www-kaggle-com-datasets-kkhandekar-global-sea-level-1993-2021">Dataset 5: https://www.kaggle.com/datasets/kkhandekar/global-sea-level-1993-2021</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#work-distribution">Work Distribution</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-ai-usage">Generative AI Usage</a></li>
