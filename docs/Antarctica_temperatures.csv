@@ -1,4 +1,4 @@
-,Domain Code,Domain,Area Code (FAO),Area,Element Code,Element,Months Code,Months,Year Code,Year,Unit,Value,Flag,Flag Description
+index,Domain Code,Domain,Area Code (FAO),Area,Element Code,Element,Months Code,Months,Year Code,Year,Unit,Value,Flag,Flag Description
 7140,ET,Temperature change,30,Antarctica,7271,Temperature change,7001,January,1961,1961,?C,-1.807,Fc,Calculated data
 7141,ET,Temperature change,30,Antarctica,7271,Temperature change,7001,January,1962,1962,?C,-1.597,Fc,Calculated data
 7142,ET,Temperature change,30,Antarctica,7271,Temperature change,7001,January,1963,1963,?C,-0.733,Fc,Calculated data
