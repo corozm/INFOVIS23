@@ -144,7 +144,7 @@ The following changes were made to this dataset:
 ## Generative AI Usage
 The reason for using generative tools in this data story project was to ensure that mistakes in the written text were not overlooked and to save time. The text was quickly written with typos, and little attention was given to the flow of the text. To save time, generative AI, such as ChatGPT, was used to fix these issues. However, it's important to note that ChatGPT was not used for writing the code in our data story project thus far. All code was either written manually or copied from examples in the Plotly documentation, with a few tweaks added.
 
-Note: Sections that were adjusted with generative AI are denoted with ‘Proodread’
+Note: Sections that were adjusted with generative AI are denoted with ‘Proofread’
 
 |Command| Input | Output |
 |-|-|-|
