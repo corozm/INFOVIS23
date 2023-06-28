@@ -439,6 +439,13 @@ document.write(`
 </section>
 <section id="preprocessing-of-dataset-2">
 <h2>Preprocessing of Dataset 2<a class="headerlink" href="#preprocessing-of-dataset-2" title="Permalink to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;FAOSTAT_data_1-10-2022.csv&quot;</span><span class="p">)</span>
+<span class="n">temp_df</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="n">temp_df</span><span class="p">[</span><span class="s2">&quot;Area&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Antarctica&quot;</span><span class="p">]</span>
+<span class="n">temp_df</span> <span class="o">=</span> <span class="n">temp_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Domain Code&quot;</span><span class="p">,</span> <span class="s2">&quot;Domain&quot;</span><span class="p">,</span> <span class="s2">&quot;Area Code (FAO)&quot;</span><span class="p">,</span>  <span class="s2">&quot;Area&quot;</span><span class="p">,</span> <span class="s2">&quot;Element Code&quot;</span><span class="p">,</span> 
+                                <span class="s2">&quot;Element&quot;</span><span class="p">,</span> <span class="s2">&quot;Months Code&quot;</span><span class="p">,</span> <span class="s2">&quot;Months&quot;</span><span class="p">,</span> <span class="s2">&quot;Flag&quot;</span><span class="p">,</span>  <span class="s2">&quot;Flag Description&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">])</span>
+<span class="n">temp_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;Antarctica_temperatures.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="preprocessing-of-dataset-3">
 <h2>Preprocessing of Dataset 3<a class="headerlink" href="#preprocessing-of-dataset-3" title="Permalink to this heading">#</a></h2>
