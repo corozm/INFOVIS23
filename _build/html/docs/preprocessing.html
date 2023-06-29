@@ -381,7 +381,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-of-dataset-2">Preprocessing of Dataset 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-of-dataset-3">Preprocessing of Dataset 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-of-dataset-4">Preprocessing of Dataset 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-of-dataset-5">Preprocessing of Dataset 5</a></li>
 </ul>
             </nav>
         </div>
@@ -451,26 +450,6 @@ document.write(`
 <h2>Preprocessing of Dataset 3<a class="headerlink" href="#preprocessing-of-dataset-3" title="Permalink to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">combined_data</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="k">for</span> <span class="n">file_number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">19</span><span class="p">):</span>
-    <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;all</span><span class="si">{</span><span class="n">file_number</span><span class="si">}</span><span class="s1">.xlsx&#39;</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
-    <span class="n">combined_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">combined_data</span><span class="p">,</span> <span class="n">data</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="n">combined_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;combined_data.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;combined_data.csv&#39;</span><span class="p">)</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Days with average temperature ≥ 18 ℃&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Days with average temperature ≥ 35 ℃&#39;</span><span class="p">)</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;antarctica_temperature.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="preprocessing-of-dataset-4">
-<h2>Preprocessing of Dataset 4<a class="headerlink" href="#preprocessing-of-dataset-4" title="Permalink to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">combined_data</span> <span class="o">=</span> <span class="kc">None</span>
-
 <span class="k">for</span> <span class="n">file_number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">112</span><span class="p">):</span>
     <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">file_number</span><span class="si">}</span><span class="s1">.csv&#39;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
@@ -480,8 +459,8 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="preprocessing-of-dataset-5">
-<h2>Preprocessing of Dataset 5<a class="headerlink" href="#preprocessing-of-dataset-5" title="Permalink to this heading">#</a></h2>
+<section id="preprocessing-of-dataset-4">
+<h2>Preprocessing of Dataset 4<a class="headerlink" href="#preprocessing-of-dataset-4" title="Permalink to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sealevel.csv&#39;</span><span class="p">)</span>
 <span class="n">df_yearly_max</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)[</span><span class="s1">&#39;GMSL_GIA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
@@ -554,7 +533,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-of-dataset-2">Preprocessing of Dataset 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-of-dataset-3">Preprocessing of Dataset 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-of-dataset-4">Preprocessing of Dataset 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-of-dataset-5">Preprocessing of Dataset 5</a></li>
 </ul>
   </nav></div>
 
